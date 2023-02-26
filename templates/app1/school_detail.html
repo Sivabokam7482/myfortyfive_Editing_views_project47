@@ -1,0 +1,23 @@
+{% extends 'app1/dummy.html'%}
+
+{% block title %}
+    <title>School Detail</title>
+{% endblock %}
+
+{% block body %}
+    <h1>School Details are </h1>
+    <h3>School Name is {{sc.sname}}</h3>
+    
+    <h3>Principal is {{sc.principal}}</h3>
+    <h3>Place is {{sc.place}}</h3>
+    <hr>
+
+    <h1>Student Details are</h1>
+    {% for sc in sc.students.all %}
+
+        <h2>Student name is {{ sc.name }}</h2>
+        <h2>Age is {{ sc.age }}</h2><hr>
+
+    {% endfor %}
+    <a href="{% url 'update' pk=sc.pk%}" class="btn btn-outline-danger">update</a>
+{% endblock %}
